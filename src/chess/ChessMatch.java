@@ -160,7 +160,7 @@ public class ChessMatch {
 			Position targetR = new Position(source.getRow(), source.getColumn() - 1);
 			ChessPiece rook = (ChessPiece) board.removePiece(targetR);
 			board.placePiece(rook, sourceR);
-			rook.increaseMoveCount();
+			rook.decreaseMoveCount();
 		}
 	}
 	

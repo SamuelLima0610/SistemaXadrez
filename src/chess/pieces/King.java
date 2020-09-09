@@ -12,7 +12,7 @@ public class King extends ChessPiece{
 	
 	public King(Board board, Color color, ChessMatch match) {
 		super(board, color);
-		this.chessMatch = chessMatch;
+		this.chessMatch = match;
 	}
 	
 	@Override
@@ -59,7 +59,7 @@ public class King extends ChessPiece{
 		p.setValues(position.getRow() + 1, position.getColumn() + 1);
 		if(getBoard().positionExists(p) && canMove(p)) mat[position.getRow() + 1][position.getColumn() + 1] = true;
 		//special move (rook castling)
-		if(getMoveCount() == 0 && ! chessMatch.getCheck()) {
+		if(getMoveCount() == 0 && !chessMatch.getCheck()) {
 			//small
 			Position posT1 = new Position(position.getRow(), position.getColumn() + 3);
 			if(testRookCastling(posT1)) {
