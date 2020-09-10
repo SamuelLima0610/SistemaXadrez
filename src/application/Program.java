@@ -16,7 +16,7 @@ public class Program {
 		// TODO Auto-generated method stub
 		ChessMatch match = new ChessMatch();
 		Scanner sc = new Scanner(System.in);
-		List<ChessPiece> captured = new ArrayList();
+		List<ChessPiece> captured = new ArrayList<>();
 		while(!match.getCheckMate()) {
 			try {
 				UI.clearScreen();
@@ -39,8 +39,11 @@ public class Program {
 				}
 				if(match.getPromoted() != null) {
 					System.out.println("Enter piece for promotion(R/N/Q/B): ");
-					String type = sc.nextLine();
-					match.replacePromotedPiece(type);
+					String type = sc.nextLine().toUpperCase();
+					while(!type.equals("B") && !type.equals("R") && !type.equals("N") && !type.equals("Q")) {
+						System.out.println("Invalid valeu of type for promotion");
+						match.replacePromotedPiece(type);
+					}
 				}
 			}catch(ChessException e) {
 				System.out.println(e.getMessage());
